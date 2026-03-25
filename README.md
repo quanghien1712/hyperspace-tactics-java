@@ -21,9 +21,12 @@
 ---
 
 ## 📸 Demo
+![image](https://github.com/user-attachments/assets/6ec231f3-11e5-4b5d-aefd-dbdcbd1c16f7)
+
 
 
 ---
+
 
 ## 🧠 Technical Focus
 
@@ -65,7 +68,6 @@ This project is designed as a **learning-oriented game system**, emphasizing:
 ## 📦 Prerequisites
 
 * JDK 21+
-* Maven 3.8+
 * Windows / Linux / macOS with display support
 
 ---
@@ -106,16 +108,29 @@ src/main/resources
 
 ## ▶️ How to Run
 
-### Run from source
+### Windows
 
 ```bash
-git clone https://github.com/quanghien1712/hyper-space-tactics.git
-cd hyper-space-tactics
-mvn clean install
-mvn exec:java
+git clone https://github.com/quanghien1712/hyperspace-tactics-java.git
+cd hyperspace-tactics-java
+New-Item -ItemType Directory -Force target/manual-classes | Out-Null
+$src = Get-ChildItem -Recurse src/main/java -Filter *.java | Select-Object -ExpandProperty FullName
+javac -encoding UTF-8 -d target/manual-classes $src
+java -cp "target/manual-classes;src/main/resources" com.game.shooting2DGame.Main
 ```
 
-Or simply open the project in **VSCode / IntelliJ / Eclipse** and run the main class.
+### MacOS / Linux
+```
+git clone https://github.com/quanghien1712/hyperspace-tactics-java.git
+cd hyperspace-tactics-java
+mkdir -p target/manual-classes
+find src/main/java -name "*.java" > target/sources.txt
+javac -encoding UTF-8 -d target/manual-classes @target/sources.txt
+java -cp "target/manual-classes:src/main/resources" com.game.shooting2DGame.Main
+
+```
+
+### Or simply open the project in **VSCode / IntelliJ / Eclipse** and run the main class.
 
 ---
 
